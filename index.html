@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Settlements Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-spade"></i> Poker Settlements</h1>
+            <p>Calculate who owes what after your poker game</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Add Player Form -->
+            <section class="add-player-section">
+                <h2><i class="fas fa-user-plus"></i> Add Player</h2>
+                <form id="addPlayerForm" class="add-player-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="playerName">Player Name</label>
+                            <input type="text" id="playerName" required placeholder="Enter player name">
+                        </div>
+                        <div class="form-group">
+                            <label for="buyIn">Buy-in Amount ($)</label>
+                            <input type="number" id="buyIn" required min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="endWealth">End of Game Amount ($)</label>
+                            <input type="number" id="endWealth" required min="0" step="0.01" placeholder="0.00">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Player
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Poker Table Visualization -->
+            <section class="table-section">
+                <div class="table-header">
+                    <h2><i class="fas fa-table"></i> Poker Table</h2>
+                    <div class="table-actions">
+                        <button id="clearTableBtn" class="btn btn-danger" disabled>
+                            <i class="fas fa-trash"></i> Clear Table
+                        </button>
+                        <button id="settleBtn" class="btn btn-success" disabled>
+                            <i class="fas fa-calculator"></i> Settle Up
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="poker-table">
+                    <div id="playersContainer" class="players-container">
+                        <div class="empty-state">
+                            <i class="fas fa-users"></i>
+                            <p>No players at the table yet</p>
+                            <p>Add players to get started</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settlement Results -->
+            <section id="settlementResults" class="settlement-section hidden">
+                <h2><i class="fas fa-receipt"></i> Settlement Results</h2>
+                <div class="settlement-summary">
+                    <div class="summary-card">
+                        <h3>Summary</h3>
+                        <div id="summaryContent"></div>
+                    </div>
+                    <div class="transactions-card">
+                        <h3>Recommended Transactions</h3>
+                        <div id="transactionsContent"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Player Details Modal -->
+        <div id="playerModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Player Details</h3>
+                    <button class="close-btn" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="player-details">
+                        <div class="detail-row">
+                            <span class="label">Name:</span>
+                            <span id="modalPlayerName"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Buy-in:</span>
+                            <span id="modalBuyIn"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">End Amount:</span>
+                            <span id="modalEndWealth"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Net Result:</span>
+                            <span id="modalNetResult"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="removePlayerBtn" class="btn btn-danger">
+                        <i class="fas fa-user-minus"></i> Remove Player
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
