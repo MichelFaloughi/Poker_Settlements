@@ -58,8 +58,8 @@ class PokerTable {
         const players = [...this.players]; // Create a copy to work with
 
         // Separate players who owe money (positive amountOwed) from those who are owed (negative amountOwed)
-        const debtors = players.filter(p => p.amountOwed < 0.01).sort((a, b) => b.amountOwed - a.amountOwed);
-        const creditors = players.filter(p => p.amountOwed > -0.01).sort((a, b) => a.amountOwed - b.amountOwed);
+        const debtors = players.filter(p => p.amountOwed < -0.01).sort((a, b) => b.amountOwed - a.amountOwed);
+        const creditors = players.filter(p => p.amountOwed > 0.01).sort((a, b) => a.amountOwed - b.amountOwed);
 
         let debtorIndex = 0;
         let creditorIndex = 0;
