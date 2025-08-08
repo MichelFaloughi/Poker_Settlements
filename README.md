@@ -2,6 +2,8 @@
 
 Hey guys, I just coded this because I needed it to settle my poker games with my friends, it kinda make stuff easier. Hope this helps other people haha! This basically tracks each player's buy-in and final chip count to determine who owes what to who etc. It also checks if everything adds up and makes sense, and proposes an example solution for who to pay how much to who so we don't have to choose. Sometimes when we're settling big tables this can come in handy 
 
+It is available @ https://michelfaloughi.github.io/Poker_Settlements/
+
 ## How to Use
 
 1. **Add Players**: Enter name, buy-in amount, and final chip count
@@ -17,3 +19,4 @@ Hey guys, I just coded this because I needed it to settle my poker games with my
 - Diana: Buy-in $100, End $50 (lost $50)
 
 **Result**: Bob pays Alice $20, Diana pays Alice $30 (2 transactions total)
+
